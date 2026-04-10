@@ -1,0 +1,72 @@
+# =========================
+# Go build artifacts
+# =========================
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.cover
+*.coverprofile
+coverage.out
+
+# Binary output folders
+bin/
+dist/
+build/
+
+# =========================
+# Go modules
+# =========================
+go.work
+go.work.sum
+
+# Vendor directory (opcional)
+# Descomente se você NÃO versionar vendor/
+# vendor/
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+
+# =========================
+# Environment files
+# =========================
+# .env
+# .env.*
+# !.env.example
+
+# =========================
+# IDE / Editor
+# =========================
+
+# VSCode
+.vscode/
+
+# GoLand / IntelliJ
+.idea/
+
+# Vim
+*.swp
+*.swo
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# =========================
+# Test binary cache
+# =========================
+*.prof
+
+# =========================
+# Temporary files
+# =========================
+tmp/
+temp/

@@ -1,0 +1,52 @@
+### Register
+
+curl -X POST http://localhost:8080/register \
+  -H "Content-Type: application/json" \
+  -d '{
+    "username": "rogerio.domingos",
+    "password": "123mudar"
+  }'
+
+### Login
+
+curl -X POST http://localhost:8080/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "username": "rogerio.domingos",
+    "password": "123mudar"
+  }'
+
+### Create contact
+
+curl -X POST http://localhost:8080/contacts \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzU5Mjc3NTMsInVzZXJfaWQiOjF9.3hgQANY3qBUGuq04KrDY5VvpWEdwPsq7UQ8xxIYIwD0" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "João Silva",
+    "phone": "11999999999"
+  }'
+
+### List contacts
+
+curl -X GET http://localhost:8080/contacts \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzU5Mjc3NTMsInVzZXJfaWQiOjF9.3hgQANY3qBUGuq04KrDY5VvpWEdwPsq7UQ8xxIYIwD0"
+
+### Contact by ID
+
+curl -X GET "http://localhost:8080/contacts/1" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzU5Mjc3NTMsInVzZXJfaWQiOjF9.3hgQANY3qBUGuq04KrDY5VvpWEdwPsq7UQ8xxIYIwD0"
+
+### Update contact
+
+curl -X PUT "http://localhost:8080/contacts/1" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzU5Mjc3NTMsInVzZXJfaWQiOjF9.3hgQANY3qBUGuq04KrDY5VvpWEdwPsq7UQ8xxIYIwD0" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Teste Atualizado",
+    "phone": "11888888888"
+  }'
+
+### Delete contact by ID
+
+curl -X DELETE "http://localhost:8080/contacts/1" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NzU5Mjc3NTMsInVzZXJfaWQiOjF9.3hgQANY3qBUGuq04KrDY5VvpWEdwPsq7UQ8xxIYIwD0"
