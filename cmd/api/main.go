@@ -5,7 +5,9 @@ import (
 	"rogeriods/contact-api/internal/database"
 	"rogeriods/contact-api/internal/handler"
 	"rogeriods/contact-api/internal/middleware"
+	"time"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )
@@ -22,6 +24,16 @@ func main() {
 	db := database.Init()
 
 	r := gin.Default()
+
+	// Middleware to allow CORS in all origins
+	r.Use(cors.New(cors.Config{
+		AllowAllOrigins:  true, // permite qualquer origem
+		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowHeaders:     []string{"Origin", "Content-Type", "Accept", "Authorization"},
+		ExposeHeaders:    []string{"Content-Length"},
+		AllowCredentials: true,
+		MaxAge:           12 * time.Hour,
+	}))
 
 	authHandler := handler.NewAuthHandler(db)
 	contactHandler := handler.NewContactHandler(db)
@@ -43,3 +55,4 @@ func main() {
 
 	r.Run(":8080")
 }
+
