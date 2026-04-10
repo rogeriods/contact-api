@@ -1,9 +1,7 @@
-version: "3.9"
-
 services:
   api:
     build: .
-    container_name: gdigapi
+    container_name: contact-api
     ports:
       - "8080:8080"
     restart: unless-stopped
